@@ -1,6 +1,7 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+#$: << 'lib'
 require "aprendizaje_maquina/version"
 
 Gem::Specification.new do |spec|
@@ -9,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.author       = "Erickson Morales"
   spec.email         = ["erickson_19_07@hotmail.com"]
 
-  spec.summary       = %q{TODO: Machine learning gem / Una gema para el aprendizaje de maquinas.}
-  spec.description   = %q{TODO: This is a gem to help ruby developers to write machine learning algorithms easier and faster / Esta es una gema para ayudar a los desarrolladores de ruby a escribir algoritmos de aprendizaje automático más fácil y rápido.}
+  spec.summary       = "Machine learning gem / Una gema para el aprendizaje de maquinas."
+  spec.description   = "This is a gem to help ruby developers to write machine learning algorithms easier and faster / Esta es una gema para ayudar a los desarrolladores de ruby a escribir algoritmos de aprendizaje automático más fácil y rápido."
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -1,16 +1,12 @@
 # AprendizajeMaquina
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aprendizaje_maquina`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Aprendizaje maquina is a gem that help us to write ruby machine learning algorithms. 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
 gem 'aprendizaje_maquina'
-```
 
 And then execute:
 
@@ -22,17 +18,44 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+for make predictions with the linear regression model
 
-## Development
+first
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+	require 'aprendizaje_maquina'
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+load data from a CSV file
+
+	load = AprendizajeMaquina::Cargar.new("file.csv")
+	y = load.to_vector(3)    # specify the column that you want to store on a vector
+    matrix = load.to_matrix  # this put all the data of the csv file in a matrix
+                             # if you don't specify the column or range of columns              
+	x = load.to_matrix(0)    # create a matrix with the data in the column 0 of the csv file 
+	                         # you can specify range like this load.to_matrix(0..4)
+	x_with_ones = x.add_ones # this add a column of ones to the matrix
+
+create an instance of the class RegresionLineal
+
+	regresion_lineal = AprendizajeMaquina::RegresionLineal.new(x_matrix,y_vector)
+	regresion_lineal.encontrar_ecuacion    # find the theta values => Vector[114.50684133915638, 0.8310043668122375]
+	m = Matrix[[1,95]]
+	p regresion_lineal.hacer_prediccion(m) # make predictions 
+										   # => Vector[193.45225618631895]
+
+linear regresion with arrays
+
+x = [74,92,63,72,58,78,85,85,73,62,80,72]
+y = [168,196,170,175,162,169,190,186,176,170,176,179]
+
+regresion_simple = AprendizajeMaquina::RegresionLineal.new(x,y)
+regresion_simple.encontrar_ecuacion
+p regresion_simple.ecuacion
+p regresion_simple.hacer_prediccion(95)
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/aprendizaje_maquina.
+Bug reports and pull requests are welcome on GitHub at https://github.com/TheNoskOneVzla/aprendizaje_maquina.
 
 ## License
 
