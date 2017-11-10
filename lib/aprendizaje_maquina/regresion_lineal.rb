@@ -8,6 +8,7 @@ module AprendizajeMaquina
 		def initialize(x,y)
 			@x = x
 			@y = y
+			@trained = false
 			if @x.is_a?(Array)
 				@n = @x.length
 			elsif @x.is_a?(Matrix)
@@ -21,25 +22,31 @@ module AprendizajeMaquina
 				@b = media(@y) - (@m * media(@x))
 				@ecuacion = "Y = #{@m.round(4)}X+#{@b.round(4)}" 
 				@ecuacion
+				@trained = true
 			elsif @x.is_a?(Matrix) && @y.is_a?(Vector)
 				inversa = (1.to_f/(@x.transpose*@x).det)*((@x.transpose*@x).adjugate)
 				@theta = inversa * (@x.transpose * @y)
 				@theta
+				@trained = true
 			else
 				raise ArgumentError
 			end
 		end
 
 		def hacer_prediccion(x_a_predecir)
-			if x_a_predecir.is_a?(Numeric)
-				prediccion = (@m * x_a_predecir) + @b
-				prediccion
-			elsif x_a_predecir.is_a?(Matrix)
-				prediccion = x_a_predecir * @theta
-				prediccion
+			if @trained == true
+				if x_a_predecir.is_a?(Numeric)
+					prediccion = (@m * x_a_predecir) + @b
+					prediccion
+				elsif x_a_predecir.is_a?(Matrix)
+					prediccion = x_a_predecir * @theta
+					prediccion
+				else
+					raise ArgumentError, "Must be a number or matrix 1xN"
+				end
 			else
-				raise ArgumentError, "Must be a number or matrix 1xN"
-			end
+				return "There is not a equation to make predictions (run encontrar_ecuacion method)"
+			end	
 		end
 
 		private
