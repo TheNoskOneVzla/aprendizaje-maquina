@@ -18,16 +18,16 @@ module AprendizajeMaquina
 
 		def encontrar_ecuacion
 			if @x.is_a?(Array) && @y.is_a?(Array)
+				@trained = true
 				@m = ((@n*sumatoria(multiplicar(@x,@y))) - (sumatoria(@x)*sumatoria(@y))).to_f / ((@n*sumatoria(al_cuadrado(@x))) - (sumatoria(@x)**2)).to_f
 				@b = media(@y) - (@m * media(@x))
 				@ecuacion = "Y = #{@m.round(4)}X+#{@b.round(4)}" 
 				@ecuacion
-				@trained = true
 			elsif @x.is_a?(Matrix) && @y.is_a?(Vector)
+				@trained = true
 				inversa = (1.to_f/(@x.transpose*@x).det)*((@x.transpose*@x).adjugate)
 				@theta = inversa * (@x.transpose * @y)
 				@theta
-				@trained = true
 			else
 				raise ArgumentError
 			end
@@ -45,7 +45,7 @@ module AprendizajeMaquina
 					raise ArgumentError, "Must be a number or matrix 1xN"
 				end
 			else
-				return "There is not a equation to make predictions (run encontrar_ecuacion method)"
+				return "There is not a equation to make predictions (first, run encontrar_ecuacion method)"
 			end	
 		end
 
