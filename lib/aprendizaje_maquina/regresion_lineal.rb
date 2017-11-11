@@ -46,11 +46,7 @@ module AprendizajeMaquina
 				end
 			else
 				return "There is not a equation to make predictions (first, run encontrar_ecuacion method)"
-<<<<<<< HEAD
 			end
-=======
-			end	
->>>>>>> c8f8271ff1de1334797f9c6f048289c908e9dcb5
 		end
 
 		private
