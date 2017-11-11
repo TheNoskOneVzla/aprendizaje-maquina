@@ -44,13 +44,13 @@ create an instance of the class RegresionLineal
 
 linear regresion with arrays
 
-x = [74,92,63,72,58,78,85,85,73,62,80,72]
-y = [168,196,170,175,162,169,190,186,176,170,176,179]
+	x = [74,92,63,72,58,78,85,85,73,62,80,72]
+	y = [168,196,170,175,162,169,190,186,176,170,176,179]
 
-regresion_simple = AprendizajeMaquina::RegresionLineal.new(x,y)
-regresion_simple.encontrar_ecuacion
-p regresion_simple.ecuacion
-p regresion_simple.hacer_prediccion(95)
+	regresion_simple = AprendizajeMaquina::RegresionLineal.new(x,y)
+	regresion_simple.encontrar_ecuacion
+	p regresion_simple.ecuacion
+	p regresion_simple.hacer_prediccion(95)
 
 
 ## Contributing
