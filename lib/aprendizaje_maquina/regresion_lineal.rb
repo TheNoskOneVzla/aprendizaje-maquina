@@ -4,7 +4,6 @@ module AprendizajeMaquina
 		alias_method :train, :find_ecuation
 		alias_method :predict, :make_prediction
 		attr_reader :m,:b, :ecuacion, :theta
-		attr_accessor :x,:y
 
 		def initialize(x,y)
 			@x = x
