@@ -1,8 +1,7 @@
 module AprendizajeMaquina
 
 	class RegresionLineal
-		alias_method :train, :find_ecuation
-		alias_method :predict, :make_prediction
+		
 		attr_reader :m,:b, :ecuacion, :theta
 
 		def initialize(x,y)
