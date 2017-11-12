@@ -48,6 +48,9 @@ module AprendizajeMaquina
 			end
 		end
 
+		alias_method :train, :find_ecuation
+		alias_method :predct, :make_prediction
+		
 		def self.deprecate(old_method, new_method)
 			define_method(old_method) do |*args, &block|
 				warn "Warning: #{old_method}() is deprecated. Use #{new_method}()."
