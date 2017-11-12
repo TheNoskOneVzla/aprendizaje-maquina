@@ -49,7 +49,7 @@ module AprendizajeMaquina
 		end
 
 		alias_method :train, :find_ecuation
-		alias_method :predct, :make_prediction
+		alias_method :predict, :make_prediction
 		
 		def self.deprecate(old_method, new_method)
 			define_method(old_method) do |*args, &block|
