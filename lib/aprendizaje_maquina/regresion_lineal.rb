@@ -1,7 +1,8 @@
 module AprendizajeMaquina
 
 	class RegresionLineal
-
+		alias_method :train, :find_ecuation
+		alias_method :predict, :make_prediction
 		attr_reader :m,:b, :ecuacion, :theta
 		attr_accessor :x,:y
 
@@ -16,7 +17,7 @@ module AprendizajeMaquina
 			end
 		end
 
-		def encontrar_ecuacion
+		def find_ecuation
 			if @x.is_a?(Array) && @y.is_a?(Array)
 				@trained = true
 				@m = ((@n*sumatoria(multiplicar(@x,@y))) - (sumatoria(@x)*sumatoria(@y))).to_f / ((@n*sumatoria(al_cuadrado(@x))) - (sumatoria(@x)**2)).to_f
@@ -33,7 +34,7 @@ module AprendizajeMaquina
 			end
 		end
 
-		def hacer_prediccion(x_a_predecir)
+		def make_prediction(x_a_predecir)
 			if @trained == true
 				if x_a_predecir.is_a?(Numeric)
 					prediccion = (@m * x_a_predecir) + @b
@@ -49,6 +50,16 @@ module AprendizajeMaquina
 			end
 		end
 
+		def self.deprecate(old_method, new_method)
+			define_method(old_method) do |*args, &block|
+				warn "Warning: #{old_method}() is deprecated. Use #{new_method}()."
+				send(new_method, *args, &block)
+			end
+		end
+
+		deprecate :encontrar_ecuacion, :find_ecuation
+		deprecate :hacer_prediccion, :make_prediction
+		
 		private
 
 		def multiplicar(array_1,array_2) 
