@@ -34,13 +34,17 @@ load data from a CSV file
 	                         # you can specify range like this load.to_matrix(0..4)
 	x_with_ones = x.add_ones # this add a column of ones to the matrix
 
+to normalize data
+	
+	x.normalize
+
 create an instance of the class RegresionLineal
 
 	regresion_lineal = AprendizajeMaquina::RegresionLineal.new(x_matrix,y_vector)
-	regresion_lineal.encontrar_ecuacion    # find the theta values => Vector[114.50684133915638, 0.8310043668122375]
+	regresion_lineal.find_ecuation         # (or use the alias :train) find the theta values => Vector[114.50684133915638, 0.8310043668122375]
 	m = Matrix[[1,95]]
-	p regresion_lineal.hacer_prediccion(m) # make predictions 
-										   # => Vector[193.45225618631895]
+	p regresion_lineal.make_prediction(m) # (or use the alias :predict)  to make predictions 
+					      # => Vector[193.45225618631895]
 
 linear regresion with arrays
 
@@ -48,9 +52,9 @@ linear regresion with arrays
 	y = [168,196,170,175,162,169,190,186,176,170,176,179]
 
 	regresion_simple = AprendizajeMaquina::RegresionLineal.new(x,y)
-	regresion_simple.encontrar_ecuacion
+	regresion_simple.train
 	p regresion_simple.ecuacion
-	p regresion_simple.hacer_prediccion(95)
+	p regresion_simple.predict(95)
 
 
 ## Contributing
