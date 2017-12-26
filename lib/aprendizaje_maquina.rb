@@ -4,10 +4,6 @@ require "aprendizaje_maquina/regresion_lineal"
 require "aprendizaje_maquina/matrixx"
 
 module AprendizajeMaquina
-	#class RegresionLogistica
-		# Coming soon...
-	#end
-
 	#class RedNeuronal
 			# Coming soon...
 	#end
