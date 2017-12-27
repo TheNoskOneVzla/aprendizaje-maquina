@@ -55,12 +55,14 @@ module AprendizajeMaquina
 					# Stochastic Gradient Descent
 					@cost_history = []
 					for i in 0..iterations
-						x = matrix(@x.to_a.map{|e| e.shuffle })*@theta
-						hx = x.map {|e| sigmoid(e) }
-						@theta = @theta - alpha / @m * @x.transpose * (hx - @y)
-						costo = 0
-						cost.to_a.map{|e| costo = e }
-						@cost_history << ["iteracion: #{i}",costo]
+						for i in 0..i
+							x = matrix(@x.to_a.map{|e| e.shuffle })*@theta
+							hx = x.map {|e| sigmoid(e) }
+							@theta = @theta - alpha / @m * @x.transpose * (hx - @y)
+							costo = 0
+							cost.to_a.map{|e| costo = e }
+							@cost_history << ["iteracion: #{i}",costo]
+						end
 					end
 					@cost_history
 					p "theta values => #{@theta} | cost => #{costo}"
