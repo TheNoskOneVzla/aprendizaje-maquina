@@ -64,7 +64,6 @@ module AprendizajeMaquina
 					end
 					@cost_history
 					p "theta values => #{@theta} | cost => #{costo}"
-				end
 			end		
 	    end
     
