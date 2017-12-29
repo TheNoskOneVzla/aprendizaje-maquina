@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-for make predictions with the linear regression model
+for make predictions with the linear regression model 
 
 first
 
@@ -51,6 +51,58 @@ linear regresion with arrays
 	regresion_simple.encontrar_ecuacion
 	p regresion_simple.ecuacion
 	p regresion_simple.hacer_prediccion(95)
+
+Logistic Classification
+
+	data = AprendizajeMaquina::Cargar.new("data.csv")
+    
+    x = data.to_matrix(0..1).add_ones
+    y = data.to_vector(2)
+    initial_theta = Vector[0,0,0]
+    
+    cl = AprendizajeMaquina::ClasificacionLogistica.new(x,y,initial_theta)
+
+training
+
+	the method ClasificacionLogistica#train receives 3 inputs, the first is the numbers of iterations, the second is the alpha value(step size), last one is type of training method ('SGD' for Stochastic Gradient Descents, 'Grad' for Batch Gradiendt Descent and 'Newm' for Newton's method)
+
+	example 1:
+		cl.train(12,0.01,'SGD')
+	example 2:
+		cl.train(10,'NewM') # Newton's method dont use alpha
+	example 3:
+		cl.train(400,0.001,'Grad')
+
+predictions
+
+	if cl.predict(Matrix[[1,24,0]]) == 1
+		p "CANSADO"
+	else
+		p "DESCANSADO"
+	end
+
+make predictions for multiclass(one vs all)
+
+	clases = [Vector[-38.98494868465186, 3.133704064187691,-1.0058753929521247],
+			  Vector[40.93814883472139,-3.2195737672278586, -0.8080682715294277],
+			  Vector[-7.220460,0.256681,1.141166]]
+
+	predicted_val = []
+
+	clases.each do |e|
+		multiclass = AprendizajeMaquina::ClasificacionLogistica.new(x,y,e)
+		predicted_val << multiclass.predict(Matrix[[1,13.5,1.83]])
+	end	
+
+	if predicted_val[0] == 1 
+		puts "Vino Tinto"
+	elsif predicted_val[1] == 1
+		puts "Vino Rosado"
+	elsif predicted_val[2] == 1
+		puts "Vino Blanco"
+	else
+		puts predicted_val
+	end
 
 
 ## Contributing
