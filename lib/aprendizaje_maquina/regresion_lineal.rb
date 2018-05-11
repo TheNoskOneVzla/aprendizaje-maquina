@@ -1,8 +1,6 @@
 module AprendizajeMaquina
-
-	class RegresionLineal
-		
-		attr_reader :m,:b, :ecuacion, :theta
+  class RegresionLineal
+	  attr_reader :m,:b, :ecuacion, :theta
 
 		def initialize(x,y)
 			@x = x
@@ -44,7 +42,7 @@ module AprendizajeMaquina
 					raise ArgumentError, "Must be a number or matrix 1xN"
 				end
 			else
-				return "There is not a equation to make predictions (first, run encontrar_ecuacion method)"
+				return "There is not a equation to make predictions (first, run find_ecuation method)"
 			end
 		end
 
@@ -67,7 +65,7 @@ module AprendizajeMaquina
 			iter = @n - 1
 			xy = []
 			for i in 0..iter
-				xy << array_1[i]*array_2[i]
+				xy << array_1[i] * array_2[i]
 			end
 			xy
 		end
