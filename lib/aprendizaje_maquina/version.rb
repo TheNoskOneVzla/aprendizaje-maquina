@@ -1,3 +1,3 @@
 module AprendizajeMaquina
-  VERSION = "0.1.3a"
+  VERSION = "0.1.4.beta1"
 end

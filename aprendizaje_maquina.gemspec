@@ -12,7 +12,6 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Machine learning gem / Una gema para el aprendizaje de maquinas."
   spec.description   = "This is a gem to help ruby developers to write machine learning algorithms easier and faster / Esta es una gema para ayudar a los desarrolladores de ruby a escribir algoritmos de aprendizaje automático más fácil y rápido."
-  spec.homepage      = ""
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
