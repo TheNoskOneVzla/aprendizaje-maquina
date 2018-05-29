@@ -17,7 +17,7 @@ my_data = [['slashdot','USA','yes',18,'None'],
 					['google','UK','yes',18,'Basic'],
 					['kiwitobes','France','yes',19,'Basic']]
 
-tree = DecisionTree.new(my_data)
+tree = AprendizajeMaquina::DecisionTree.new(my_data)
 
 print tree.display_tree
 

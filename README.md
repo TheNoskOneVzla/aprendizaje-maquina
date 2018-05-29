@@ -137,7 +137,7 @@ make predictions for multiclass(one vs all)
 
 ## Decision tree 
 
-	tree = DecisionTree.new(dataset)
+	tree = AprendizajeMaquina::DecisionTree.new(dataset)
 
 	print tree.display_tree 
 
