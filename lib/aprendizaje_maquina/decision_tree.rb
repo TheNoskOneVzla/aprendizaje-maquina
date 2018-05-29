@@ -1,14 +1,14 @@
 module AprendizajeMaquina
-	class DecisionTree
-		def initialize(dataset)
-			@dataset = dataset
-		end
+  class DecisionTree
+	  def initialize(dataset)
+      @dataset = dataset
+    end
 
-		def display_tree
-			node_root = build_tree(@dataset)
-			colection = [node_root]
-			branches = []
-			tree = "root --> #{node_root[1][0]}:#{node_root[1][1]}?\n"
+    def display_tree
+      node_root = build_tree(@dataset)
+      colection = [node_root]
+      branches = []
+      tree = "root --> #{node_root[1][0]}:#{node_root[1][1]}?\n"
 			for node in 0...node_root[2].length
 				branches << build_tree(node_root[2][node])
 				colection << branches
