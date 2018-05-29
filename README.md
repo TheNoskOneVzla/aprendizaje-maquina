@@ -135,6 +135,15 @@ make predictions for multiclass(one vs all)
 	# Predict the closest cluster
 	p clustering.predict(Vector[63,190])
 
+## Decision tree 
+
+	tree = DecisionTree.new(dataset)
+
+	print tree.display_tree 
+
+	puts tree.predict(datatest)
+
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
