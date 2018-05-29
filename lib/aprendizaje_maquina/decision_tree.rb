@@ -4,7 +4,7 @@ module AprendizajeMaquina
 			@dataset = dataset
 		end
 
-		def desplay_tree
+		def display_tree
 			node_root = build_tree(@dataset)
 			colection = [node_root]
 			branches = []
@@ -25,6 +25,8 @@ module AprendizajeMaquina
 									subbranches << build_tree(branch[2][node])
 								end
 							end
+						elsif branch.is_a?(Hash)
+							tree << "#{true_or_false.call(node)} --> "+"#{branch}\n"
 						end
 					end
 					branches = subbranches

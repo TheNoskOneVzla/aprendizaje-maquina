@@ -19,7 +19,7 @@ my_data = [['slashdot','USA','yes',18,'None'],
 
 tree = DecisionTree.new(my_data)
 
-print tree.desplay_tree
+print tree.display_tree
 
 test_data = ['(direct)','USA','yes',5]
 
